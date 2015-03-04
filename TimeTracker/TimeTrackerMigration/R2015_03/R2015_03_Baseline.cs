@@ -27,7 +27,8 @@ namespace TimeTrackerMigration.R2015_03
                 .WithColumn("ActiveMinutes").AsInt32().Nullable()
                 .WithColumn("IsWorkingDay").AsBoolean().Nullable()
                 .WithColumn("StartTime").AsDateTime().NotNullable()
-                .WithColumn("LastUpdate").AsDateTime().NotNullable();
+                .WithColumn("LastUpdate").AsDateTime().NotNullable()
+                .WithColumn("SyncRoot").AsInt32().NotNullable().WithDefaultValue(1);
             Create.PrimaryKey("PK_TimeTracker").OnTable("TimeTracker").WithSchema(kDbo).Columns(new[] { "Id" });
 
             Create.Table("TimeTrackerHistory")
@@ -38,7 +39,8 @@ namespace TimeTrackerMigration.R2015_03
                 .WithColumn("MeetingMinutes").AsInt32().Nullable()
                 .WithColumn("ActiveMinutes").AsInt32().Nullable()
                 .WithColumn("UserName").AsString().NotNullable()
-                .WithColumn("LastUpdate").AsDateTime().NotNullable();
+                .WithColumn("LastUpdate").AsDateTime().NotNullable()
+                .WithColumn("SyncRoot").AsInt32().NotNullable().WithDefaultValue(1);
             Create.PrimaryKey("PK_TimeTracker_History").OnTable("TimeTrackerHistory").WithSchema(kDbo).Columns(new[] { "Id" });
 
             Create.ForeignKey("FK_TimeTrackerHistory_TimeTracker")
