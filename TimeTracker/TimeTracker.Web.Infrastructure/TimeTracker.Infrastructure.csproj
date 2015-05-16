@@ -65,6 +65,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DtoMapper\IMapper.cs" />
+    <Compile Include="DtoMapper\TrackerEntityToDtoMapper.cs" />
+    <Compile Include="Dto\TrackerDto.cs" />
+    <Compile Include="Dto\TrackerHistoryDto.cs" />
     <Compile Include="Entities\Tracker.cs" />
     <Compile Include="Entities\TrackerHistory.cs" />
     <Compile Include="Mappings\TrackerHistoryMap.cs" />

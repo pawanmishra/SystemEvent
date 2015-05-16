@@ -14,28 +14,24 @@ namespace TimeTracker.Infrastructure.Entities
             TrackerHistory = new List<TrackerHistory>();
         }
 
-        public DateTime Date { get; set; }
-
         public string UserName { get; set; }
 
         public int MeetingMinutes { get; set; }
 
         public int ActiveMinutes { get; set; }
 
-        public bool IsWorkingDay { get; set; }
+        public int IsWorkingDay { get; set; }
 
         public DateTime StartTime { get; set; }
 
-        public ICollection<TrackerHistory> TrackerHistory { get; set; }
+        public IList<TrackerHistory> TrackerHistory { get; set; }
 
         public int Id { get; set; }
 
-        public DateTime LastUpdate { get; set; }
-
         public int SyncRoot { get; set; }
 
-        public DateTime DateCreated { get { return Date; } set { Date = value; } }
+        public DateTime DateCreated { get; set; }
 
-        public DateTime DateModified { get { return LastUpdate; } set { LastUpdate = value; } }
+        public DateTime DateModified { get; set; }
     }
 }

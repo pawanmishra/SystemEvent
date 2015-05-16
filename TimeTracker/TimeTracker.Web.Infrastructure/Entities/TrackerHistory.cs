@@ -19,16 +19,12 @@ namespace TimeTracker.Infrastructure.Entities
 
         public int ActiveMinutes { get; set; }
 
-        public DateTime Date { get; set; }
-
-        public DateTime LastUpdate { get; set; }
-
         public int SyncRoot { get; set; }
 
         public Tracker Tracker { get; set; }
 
-        public DateTime DateCreated { get { return Date; } set { Date = value; } }
+        public DateTime DateCreated { get; set; }
 
-        public DateTime DateModified { get { return LastUpdate; } set { LastUpdate = value; } }
+        public DateTime DateModified { get; set; }
     }
 }
