@@ -16,6 +16,6 @@ namespace TimeTracker.Infrastructure.Dto
         public int active_minutes { get; set; }
         public DateTime start_time { get; set; }
         public DateTime last_update { get; set; }
-        public TrackerHistoryDto[] tracker_history { get; set; }
+        public string tracker_history { get; set; }
     }
 }

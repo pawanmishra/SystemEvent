@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TimeTracker.Core.Constants;
 using TimeTracker.Infrastructure.Dto;
 using TimeTracker.Infrastructure.Entities;
 
@@ -10,7 +11,7 @@ namespace TimeTracker.Infrastructure.DtoMapper
 {
     public class TrackerEntityToDtoMapper : IMapper<Tracker, TrackerDto>
     {
-        public TrackerDto MapFrom(Tracker source)
+        public TrackerDto MapFrom(Tracker source, string rootUrl)
         {
             TrackerDto tracker = new TrackerDto();
             tracker.id = source.Id;
@@ -21,20 +22,7 @@ namespace TimeTracker.Infrastructure.DtoMapper
             tracker.meeting_minutes = source.MeetingMinutes;
             tracker.start_time = source.StartTime;
             tracker.last_update = source.DateModified;
-            tracker.tracker_history = new TrackerHistoryDto[source.TrackerHistory.Count];
-            for(int i = 0; i < source.TrackerHistory.Count; i++)
-            {
-                var item = source.TrackerHistory[i];
-                TrackerHistoryDto dto = new TrackerHistoryDto();
-                dto.id = item.Id;
-                dto.parent_id = item.ParentId;
-                dto.user_name = source.UserName;
-                dto.date = source.DateCreated;
-                dto.active_minutes = source.ActiveMinutes;
-                dto.meeting_minutes = source.MeetingMinutes;
-                dto.last_update = source.DateModified;
-                tracker.tracker_history[i] = dto;
-            }
+            tracker.tracker_history = string.Format("{0}{1}/{2}", rootUrl, UrlStrings.TrackerHistoryStem, tracker.id);
 
             return tracker;
         }

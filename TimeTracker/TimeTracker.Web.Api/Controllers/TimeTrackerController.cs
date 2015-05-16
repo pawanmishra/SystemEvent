@@ -15,6 +15,7 @@ namespace TimeTracker.Web.Api.Controllers
     [RouteAccept(TrackerApiStem + "/{id}", "application/json")]
     public class TimeTrackerController : ApiController
     {
+        private const string RootUrl = "http://localhost:50040/";
         private const string TrackerApiStem = "api" + "/" + "tracker";
         private readonly IRepository<Tracker> _trackerRepository;
         private readonly IMapper<Tracker, TrackerDto> _trackerMapper;
@@ -27,19 +28,16 @@ namespace TimeTracker.Web.Api.Controllers
 
         public IEnumerable<TrackerDto> Get()
         {
-            return _trackerRepository.AllIncluding(x => x.TrackerHistory).Take(5).ToList().Select(x => _trackerMapper.MapFrom(x));
+            return _trackerRepository.GetAll().ToList().Select(x => _trackerMapper.MapFrom(x, RootUrl));
         }
-
-        /// <summary>
-        /// Get all jobs
-        /// </summary>
-        /// <returns>All jobs</returns>
+        
         public IHttpActionResult Get([FromUri] int id)
         {
+            var rootLocation = HttpContext.Current;
             var tracker = _trackerRepository.FindBy(x => x.Id == id).FirstOrDefault();
             if(tracker != null)
             {
-                var dto = _trackerMapper.MapFrom(tracker);
+                var dto = _trackerMapper.MapFrom(tracker, RootUrl);
                 return Ok(dto);
             }
 

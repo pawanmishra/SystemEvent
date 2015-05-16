@@ -15,5 +15,6 @@ namespace TimeTracker.Infrastructure.Dto
         public int meeting_minutes { get; set; }
         public int active_minutes { get; set; }
         public DateTime last_update { get; set; }
+        public string parent_tracker { get; set; }
     }
 }

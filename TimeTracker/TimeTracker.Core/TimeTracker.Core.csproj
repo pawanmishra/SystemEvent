@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\UrlStrings.cs" />
     <Compile Include="Framework\IEntity.cs" />
     <Compile Include="Framework\TimeTrackerContextBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

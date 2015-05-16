@@ -8,6 +8,6 @@ namespace TimeTracker.Infrastructure.DtoMapper
 {
     public interface IMapper<in TSource, out TDestination>
     {
-        TDestination MapFrom(TSource source);
+        TDestination MapFrom(TSource source, string url);
     }
 }
