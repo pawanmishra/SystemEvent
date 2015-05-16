@@ -38,12 +38,28 @@ namespace SystemEvent
             SystemEvents.PowerModeChanged += SystemEvents_PowerModeChanged;
             SystemEvents.SessionEnded += SystemEvents_SessionEnded;
             PowerManager.IsMonitorOnChanged += PowerManager_IsMonitorOnChanged;
+            PowerManager.PowerSourceChanged += PowerManager_PowerSourceChanged;
 
             Thread threadOn = new Thread(CheckIfScreenSaverIsOn) {IsBackground = true};
             Thread threadOff = new Thread(CheckIfScreenSaverIsOff) {IsBackground = true};
 
             threadOn.Start();
             threadOff.Start();
+        }
+
+        static void PowerManager_PowerSourceChanged(object sender, EventArgs e)
+        {
+            if (PowerManager.PowerSource == PowerSource.Battery || PowerManager.PowerSource == PowerSource.Ups)
+            {
+                log.Info("PowerSource Changed to either Battery or Ups");
+                CalculateElapsedTime();
+            }
+
+            else if (PowerManager.PowerSource == PowerSource.AC)
+            {
+                log.Info("PowerSource changed to AC");
+                ResetTimer();
+            }
         }
 
         /// <summary>
