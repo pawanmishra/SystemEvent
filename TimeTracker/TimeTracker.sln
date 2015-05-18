@@ -23,6 +23,28 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTracker.Infrastructure"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTracker.Core", "TimeTracker.Core\TimeTracker.Core.csproj", "{4E767E3E-E62A-4B4F-93B3-DEBA4D65637C}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "TimeTracker.Web.Client", "http://localhost:62126", "{3A3EA54D-4464-4FB0-A8F1-85E58D74F596}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_62126"
+		Debug.AspNetCompiler.PhysicalPath = "TimeTracker.Web.Client\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62126\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_62126"
+		Release.AspNetCompiler.PhysicalPath = "TimeTracker.Web.Client\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62126\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "TimeTracker.Web.Client\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +75,10 @@ Global
 		{4E767E3E-E62A-4B4F-93B3-DEBA4D65637C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E767E3E-E62A-4B4F-93B3-DEBA4D65637C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E767E3E-E62A-4B4F-93B3-DEBA4D65637C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A3EA54D-4464-4FB0-A8F1-85E58D74F596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A3EA54D-4464-4FB0-A8F1-85E58D74F596}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A3EA54D-4464-4FB0-A8F1-85E58D74F596}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A3EA54D-4464-4FB0-A8F1-85E58D74F596}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
