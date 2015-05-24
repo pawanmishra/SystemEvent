@@ -13,6 +13,7 @@ namespace TimeTracker.Web.Api
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+            config.EnableCors();
         }
     }
 }

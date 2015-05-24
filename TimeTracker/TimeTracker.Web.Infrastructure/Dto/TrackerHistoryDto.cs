@@ -10,11 +10,11 @@ namespace TimeTracker.Infrastructure.Dto
     {
         public int id { get; set; }
         public int parent_id { get; set; }
-        public DateTime date { get; set; }
+        public string date { get; set; }
         public string user_name { get; set; }
         public int meeting_minutes { get; set; }
         public int active_minutes { get; set; }
-        public DateTime last_update { get; set; }
+        public string last_update { get; set; }
         public string parent_tracker { get; set; }
     }
 }

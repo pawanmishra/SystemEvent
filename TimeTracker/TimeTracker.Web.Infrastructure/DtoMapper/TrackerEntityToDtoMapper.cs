@@ -16,12 +16,12 @@ namespace TimeTracker.Infrastructure.DtoMapper
             TrackerDto tracker = new TrackerDto();
             tracker.id = source.Id;
             tracker.user_name = source.UserName;
-            tracker.date = source.DateCreated;
+            tracker.date = source.DateCreated.ToString("dd-MM-yyyy");
             tracker.is_working_day = source.IsWorkingDay;
             tracker.active_minutes = source.ActiveMinutes;
             tracker.meeting_minutes = source.MeetingMinutes;
-            tracker.start_time = source.StartTime;
-            tracker.last_update = source.DateModified;
+            tracker.start_time = source.StartTime.ToString("dd-MM-yyyy HH:mm:ss");
+            tracker.last_update = source.DateModified.ToString("dd-MM-yyyy HH:mm:ss");
             tracker.tracker_history = string.Format("{0}{1}/{2}", rootUrl, UrlStrings.TrackerHistoryStem, tracker.id);
 
             return tracker;

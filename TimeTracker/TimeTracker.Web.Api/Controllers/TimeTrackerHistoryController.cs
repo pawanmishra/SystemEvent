@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using TimeTracker.Infrastructure;
 using TimeTracker.Infrastructure.Dto;
 using TimeTracker.Infrastructure.DtoMapper;
@@ -12,6 +13,7 @@ using TimeTracker.Infrastructure.Repository;
 
 namespace TimeTracker.Web.Api.Controllers
 {
+    [EnableCors("http://localhost:62126", "*", "*")]
     [RouteAccept(TrackerApiStem, "application/json")]
     [RouteAccept(TrackerApiStem + "/{id}", "application/json")]
     public class TimeTrackerHistoryController : ApiController
@@ -29,7 +31,7 @@ namespace TimeTracker.Web.Api.Controllers
 
         public IHttpActionResult Get([FromUri] int id)
         {
-            var trackerHistory = _trackerRepository.FindBy(x => x.ParentId == id).ToList();
+            var trackerHistory = _trackerRepository.FindBy(x => x.ParentId == id).OrderBy(x => x.DateModified).ToList();
             if (trackerHistory != null)
             {
                 var dto = trackerHistory.Select(x => _trackerMapper.MapFrom(x, RootUrl));
